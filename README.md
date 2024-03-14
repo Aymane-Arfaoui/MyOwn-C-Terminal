@@ -1,11 +1,6 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/LBdSKQQu)
-**Assignment 3 - Simple Shell with Pipes**
+**Simple Shell with Pipes**
 
-Welcome to your third homework assignment.  
-
-**NOTE:** The GitHub due date is the CUTOFF time and **not** the actual due date. See Canvas for the actual due date.
-
-**Assignment Purpose and Learning Outcomes:**
+** Purpose and Learning Outcomes:**
 - Understanding processes and the use of fork, exec, and wait functions
 - Understanding error handling
 - Reading user input
@@ -14,7 +9,7 @@ Welcome to your third homework assignment.
 - Understanding and using Vectors (arrays of pointers)
 - Comprehensive use of redirection of standard input and output and the use of pipes
 
-**Let me remind you of the general expectations for all projects:** 
+**General expectations for all projects:** 
 - All projects are done in C in the Ubuntu Linux Virtual Machine.
 - Code must be neat, with proper and consistent indentation and well documented. 
 - Keep line to around 80 characters per line, and not line greater than 100 characters.
@@ -25,27 +20,7 @@ Welcome to your third homework assignment.
 - In addition, each file must have the standard header as defined below.
 - All source files and writeup must be in the main branch of the github.
   
-All primary filenames should be `<lastname>_<firstname>_HW<#>_<component>.<proper extension>`, except Makefile.
-
-Each .c and .h file must have a standard header as defined below.  Make sure to put in your section number (replace the #), your name, your student ID, a proper project name, GitHub name, filename, and description of the project.  Do not alter the number of asterisks and ensure that the header starts on line 1 of the file.
-
-```
-/**************************************************************
-* Class::  CSC-415-0# Spring 2024
-* Name::
-* Student ID::
-* GitHub-Name::
-* Project:: Assignment 3 – Simple Shell with Pipes
-*
-* File:: <name of this file>
-*
-* Description::
-*
-**************************************************************/
-```
-This is an INDIVIDUAL assignment.  You can (and should) work in groups to research how to do the assignment, but each person should code their own version and make their own submission.
-
-In our slides we talked about a simple shell.  For this assignment you will implement your own shell that runs on top of the regular command-line interpreter for Linux.  
+For this assignment you will implement your own shell that runs on top of the regular command-line interpreter for Linux.  
 
 Your shell should read lines of user input, then parse and execute the commands by forking/creating new processes.  For each command, your shell should call fork() followed by execvp().  Following each command, your shell should wait for its child process to complete, and then print the child PID and the **return result from the child process**.  The user should be able to specify the command to execute by giving a path to the executable file (e.g. `/bin/ls`) or by using path expansion to locate the executable file (i.e. searching each directory in the PATH environment variable).  (Note that the execvp() function perform this processing automatically; you do not need to program it yourself.)  
 
@@ -66,36 +41,3 @@ Piping - You shell must also support piping.  An example of using pipes in the L
 Hint: get your shell working without pipes first, then go back and add pipes.  While this may require a little more work to change your code to support pipes, it ensures you do the rest of the shell correctly so you are not trying to debug multiple things at once.  Some functions you will need include `pipe` and `dup2`.
 
 Your program must also accept a command line argument which is the prefix prompt.  If no value is specified use “> ” as the prompt.
-
-Here is a sample execution:
-
-```
- student@student-VirtualBox:~/CSC415/assignment3$ ./assn3 prompt$
-prompt$ ls -l
-total 20
--rwxr-xr-x 1 student student 13216 Feb 23 13:44 assn3
--rw-r--r-- 1 student student  1583 Feb 23 13:44 assn3.c
-Child 2124, exited with 0
-prompt$ ls foo
-ls: cannot access 'foo': No such file or directory
-Child 2125, exited with 2
-prompt$ exit
-student@student-VirtualBox:~/CSC415/assignment3$
-```
-
-You should submit your source code file(s), and Makefile along with a writeup in PDF format (using the template) that includes a description of what you did issues you had and resolutions and the compilation and execution output (screen shots) from your program to GitHub and just the PDF also to Canvas. Your execution output should include commands with command-line arguments.  Then use the exit command to exit your program and show the output of the same commands in the regular command-line interpreter for that machine to ensure they match.
-
-All filenames should be `<lastname>_<firstname>_HW<#>_<optional>.<proper extension>`
-
-Rubric
-
-| Grade Item	| Grade Points |
-|:-----------|----------------------------------------:|
-| Standard Header	| 2 |
-| Command Processing |             	35
-| Handeling of Pipes | 15
-| Custom Prompt	| 3 |
-| Output Status	| 10 |
-| Code Comments	| 5 |
-| Writeup	| 10 (Description, Compilation, Sample Output)| 
-
